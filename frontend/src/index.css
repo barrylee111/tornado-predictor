@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-storm-950 text-white;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.leaflet-container {
+  background: #07090f;
+}
+
+/* Radar overlay subtle blend */
+.leaflet-tile-pane .radar-layer {
+  mix-blend-mode: screen;
+}
+
+/* Risk level badge colors */
+.risk-LOW      { @apply bg-emerald-900 text-emerald-300 border border-emerald-700; }
+.risk-ELEVATED { @apply bg-yellow-900 text-yellow-300 border border-yellow-700; }
+.risk-HIGH     { @apply bg-orange-900 text-orange-300 border border-orange-700; }
+.risk-EXTREME  { @apply bg-red-900 text-red-300 border border-red-700; }
+
+/* Pulse ring for HIGH/EXTREME */
+@keyframes risk-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.risk-pulse { animation: risk-pulse 1.4s ease-in-out infinite; }
+
+/* Search dropdown */
+.zip-dropdown {
+  @apply absolute z-50 w-full mt-1 rounded-lg border border-storm-600 bg-storm-800 shadow-xl overflow-hidden;
+}
+.zip-dropdown-item {
+  @apply px-4 py-2.5 text-sm cursor-pointer hover:bg-storm-700 text-gray-200 flex items-center gap-2;
+}
+.zip-dropdown-item.active {
+  @apply bg-storm-700;
+}
