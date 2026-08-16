@@ -93,12 +93,17 @@ Point `MODEL_PATH` / `SCALER_PATH` at your local artifacts.
 | POST | `/predict/grid`       | batched grid prediction (heat map) |
 | POST | `/tts`                | text-to-speech risk summary |
 
+## NEXRAD radar fusion
+
+A storm-scale **radar tower** (TorNet CNN backbone) is fused with the atmospheric transformer in a
+two-tower `FusionTornadoModel` to lift skill toward SOTA. See **[docs/fusion-model.md](docs/fusion-model.md)**
+for architecture, data pipeline, and training. Data and weights are git-ignored.
+
 ## Roadmap
 
-- 🚧 **NEXRAD radar fusion** — add a storm-scale radar tower (TorNet CNN backbone) fused with the
-  atmospheric transformer to lift skill toward SOTA. *(In progress — see the radar-fusion PR.)*
 - Multi-class EF-scale (EF0–EF5) intensity prediction.
 - Longer, calibrated lead-time forecasting.
+- See [NEXT_STEPS.md](NEXT_STEPS.md) for the full backlog.
 
 ## License
 
